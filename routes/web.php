@@ -32,11 +32,17 @@ Route::prefix('admin')->namespace('Admin')
         Route::get('/tahun', 'TahunController@index')->name('tahun.index');
         Route::get('/tahun/create', 'TahunController@create')->name('tahun.create');
         Route::post('/tahun/store', 'TahunController@store')->name('tahun.store');
-        // Route::get('/tahun/show/{id}', 'ManageUserController@show')->name('tahun.show');
         Route::get('/tahun/edit/{id}', 'TahunController@edit')->name('tahun.edit');
         Route::put('/tahun/update/{id}', 'TahunController@update')->name('tahun.update');
         Route::get('/tahun/delete/{id}', 'TahunController@destroy')->name('tahun.destroy');
 
+
+        Route::get('/kepalasekolah', 'KepalaSekolahController@index')->name('kepalasekolah.index');
+        Route::get('/kepalasekolah/create', 'KepalaSekolahController@create')->name('kepalasekolah.create');
+        Route::post('/kepalasekolah/store', 'KepalaSekolahController@store')->name('kepalasekolah.store');
+        Route::get('/kepalasekolah/edit/{id}', 'KepalaSekolahController@edit')->name('kepalasekolah.edit');
+        Route::put('/kepalasekolah/update/{id}', 'KepalaSekolahController@update')->name('kepalasekolah.update');
+        Route::get('/kepalasekolah/delete/{id}', 'KepalaSekolahController@destroy')->name('kepalasekolah.destroy');
 
         // manage-user
         Route::get('/manage_user', 'ManageUserController@index')->name('manage_user.index');

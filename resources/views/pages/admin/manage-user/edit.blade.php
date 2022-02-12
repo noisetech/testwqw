@@ -40,6 +40,7 @@
                         <option value="{{ $item->role }}">Data Sebelumnya ({{ $item->role }})</option>
                         <option value="guru">Guru</option>
                         <option value="siswa">Siswa</option>
+                        <option value="kepala sekolah">Kepala Sekolah</option>
                     </select>
                 </div>
 

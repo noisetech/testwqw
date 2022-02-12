@@ -16,10 +16,24 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('manage_user.index') }}">
-                    <i class="fas fa-fw fa-arrow-right"></i>
-                    <span>Manage User</span></a>
+                    <i class="fas fa-fw fa-list-alt"></i>
+                    <span>Manage Users</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('halaman.opsi.siswa.admin') }}">Siswa</a>
+                        <a class="collapse-item" href="{{ route('halaman.opsi.guru.admin') }}">Guru</a>
+                        <a class="collapse-item" href="{{ route('kepalasekolah.index') }}">Kepala Sekolah</a>
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">
@@ -43,8 +57,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('halaman.opsi.siswa.admin') }}">Siswa</a>
-                        <a class="collapse-item" href="{{ route('halaman.opsi.guru.admin') }}">Guru</a>
+
                         <a class="collapse-item" href="{{ route('mata.pelajaran.index') }}">Mata Pelajaran</a>
                         <a class="collapse-item" href="{{ route('jadwal_pelajaran') }}">Jadwal Pelajaran</a>
                         <a class="collapse-item" href="{{ route('kelas.index') }}">Kelas</a>

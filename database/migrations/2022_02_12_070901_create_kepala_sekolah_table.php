@@ -15,12 +15,15 @@ class CreateKepalaSekolahTable extends Migration
     {
         Schema::create('kepala_sekolah', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_lengkap');
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
-            $table->longText('alamat');
-            $table->string('no_telpon');
-            $table->string('foto');
+            $table->string('nama_lengkap')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->integer('user_id');
+            $table->string('tahun_mulai_masa_jabatan')->nullable();
+            $table->string('tahun_selsai_masa_jabatan')->nullable();
+            $table->longText('alamat')->nullable();
+            $table->string('no_telpon')->nullable();
+            $table->string('foto')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

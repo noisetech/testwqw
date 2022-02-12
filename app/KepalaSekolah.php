@@ -12,7 +12,8 @@ class KepalaSekolah extends Model
     protected $table = 'kepala_sekolah';
 
     protected $fillable = [
-        'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'no_telpon', 'foto', 'user_id'
+        'nama_lengkap', 'tempat_lahir', 'tanggal_lahir', 'user_id', 'tahun_mulai_masa_jabatan',
+        'tahun_selsai_masa_jabatan', 'alamat', 'no_telpon', 'foto'
     ];
 
 
