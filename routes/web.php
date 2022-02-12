@@ -94,8 +94,6 @@ Route::prefix('admin')->namespace('Admin')
         Route::get('/opsi-jadwal-siswa', 'OpsiJadwalSiswaController@halaman_opsi_jadwal_siswa')->name('opsi.halaman.jadwal.siswa.admin');
         Route::post('/cari-opsi/jadwal-siswa', 'OpsiJadwalSiswaController@cari_opsi_jadwal_siswa')->name('cari.opsi.jadwal.siswa.admin');
 
-
-
         // bagian mata-pelajaran admin
         Route::get('/data-mata-pelajaran', 'MataPelajaranController@index')->name('mata.pelajaran.index');
         Route::get('/halaman-tambah/data-mata-pelajaran', 'MataPelajaranController@create')->name('create.tambah.mata.pelajaran');
@@ -104,22 +102,13 @@ Route::prefix('admin')->namespace('Admin')
         Route::post('/proses-ubah/data-mata-pelajaran/{id}', 'MataPelajaranController@update')->name('update.mata.pelajaran');
         Route::get('/proses-hapus/data-mata-pelajaran/{id}', 'MataPelajaranController@destroy')->name('destroy.mata.pelajaran');
 
-
-
-
-
         Route::resource('kelas', 'KelasController');
         Route::resource('jadwal', 'JadwalController');
         Route::resource('siswa', 'SiswaController');
         Route::resource('jadwal_siswa', 'JadwalSiswaController');
         Route::resource('pembayaran_administrasi', 'PembayaranAdministrasiController');
         Route::resource('tagihan_administrasi', 'TagihanAdminitrasiController');
-
-
-
-
     });
-
 
 Route::prefix('siswa')->namespace('Siswa')
     ->middleware('auth')
@@ -142,6 +131,14 @@ Route::prefix('siswa')->namespace('Siswa')
         Route::get('/cetak/hasil-pemmbelajaran', 'HasilPembelajaranController@cetak_hasil_pembelajaran')->name('cetak.hasil.pembelajaran');
     });
 
+
+    Route::prefix('kepala-sekolah')
+    ->namespace('KepalaSekolah')
+    ->group(function(){
+        Route::get('/', 'DashboardKepalaSekolahController@index')->name('test.kepala');
+    });
+
+
 Route::prefix('guru')->namespace('Guru')
     ->middleware('auth')
     ->group(function () {
@@ -159,3 +156,5 @@ Route::prefix('guru')->namespace('Guru')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('kepala-sekolah/dashboard', 'DasboardKepalaSekolahController@dashboard_kepala_sekolah');

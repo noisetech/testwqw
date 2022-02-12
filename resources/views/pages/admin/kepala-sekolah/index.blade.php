@@ -23,10 +23,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Lengkap</th>
-                                <th>Tempat, Tanggal Lahir</th>
-                                <th>Masa Jabatan</th>
-                                <th>ALamat</th>
-                                <th>No Telpon</th>
                                 <th>Foto</th>
                                 <th>Akun</th>
                                 <th>Aksi</th>
@@ -37,16 +33,6 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $item->nama_lengkap }}</td>
-                                <td>{{ $item->tempat_lahir.', '.\Carbon\Carbon::parse($item->tanggal_lahir)->isoFormat('DD-MM-Y') }}</td>
-                                <td>
-                                    @if ($item->tahun_mulai_masa_jabatan == '' && $item->tahun_selsai_masa_jabatan == '')
-
-                                    @else
-                                    {{ $item->tahun_mulai_masa_jabatan.' - '.$item->tahun_selsai_masa_jabatan }}
-                                    @endif
-                                </td>
-                                <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->no_telepon }}</td>
                                 <td>
                                     @if (!empty($item->foto))
                                         <img src="{{ Storage::url($item->foto) }}" alt="" width="150" class="img-thumbnail rounded">
@@ -55,8 +41,10 @@
                                 <td>{{ $item->user->email }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <a href="{{ route('kepalasekolah.edit', $item->id) }}" class="btn btn-sm btn-warning mr-1">Edit</a>
 
+
+                                        <a href="{{ route('kepalasekolah.edit', $item->id) }}" class="btn btn-sm btn-secondary mr-1">Detail</a>
+                                        <a href="{{ route('kepalasekolah.edit', $item->id) }}" class="btn btn-sm btn-warning mr-1">Edit</a>
                                         <a href="{{ route('kepalasekolah.destroy', $item->id) }}" class="btn btn-sm btn-danger delete-confirm">Hapus</a>
                                     </div>
                                 </td>

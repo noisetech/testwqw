@@ -114,3 +114,21 @@
     </html>
 
 @endsection
+
+
+@push('script')
+    <script src="{{ asset('backend/js/sweetalert.min.js') }}"></script>
+
+
+    <script>
+        @if (session('error'))
+            Swal.fire({
+            title: "{{ session('error') }}",
+            text: "{{ session('status_text') }}",
+            icon: "{{ session('status_code') }}",
+            showConfirmButton: false,
+            });
+            setTimeout(window.location.reload.bind(window.location), 2500);
+        @endif
+    </script>
+@endpush
