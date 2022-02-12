@@ -16,20 +16,23 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                    <img class="img-profile rounded-circle"
-                        src="{{ asset('backend/img/undraw_profile.svg') }}">
+                    <img class="img-profile rounded-circle" src="{{ asset('backend/img/undraw_profile.svg') }}">
                 </a>
                 <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                    aria-labelledby="userDropdown">
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
-                    </a>
+                    <form id="logout" action="{{ route('logout') }}" method="POST" class="dropdown-item">
+                        @csrf
+
+                       <div class="d-flex justify-content-center m-0">
+                        <button class="btn btn-sm text-center  text-white" type="submit" style="background-color: #FA4EAB;">
+                            Logout  <i class="fas fa-sm fa-sign-out-alt"></i>
+                        </button>
+                       </div>
+                    </form>
                 </div>
             </li>
 
@@ -37,3 +40,27 @@
 
     </nav>
     <!-- End of Topbar -->
+
+
+    @push('script')
+        <script src="{{ asset('backend/js/sweetalert.min.js') }}"></script>
+        <script>
+            $('#logout').on('click', function(event) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Anda yakin?',
+                    text: "Keluar Sistem!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: 'Cancel',
+                    confirmButtonText: 'Logout!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('#logout').submit();
+                    }
+                })
+            });
+        </script>
+    @endpush

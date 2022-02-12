@@ -13,9 +13,6 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('kepalasekolah.update', $item->id) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
 
                     <div class="row">
                         <div class="col-md-4 col-lg-4">
@@ -80,10 +77,7 @@
                     </div>
 
 
-                    <button class="btn btn-sm btn-warning float-right" type="submit">
-                        Ubah
-                    </button>
-                </form>
+
 
             </div>
         </div>
