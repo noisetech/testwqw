@@ -30,13 +30,6 @@
 
     <body>
 
-        <div class="d-lg-flex justify-content-center">
-            @if (session('status'))
-                <div class="alert alert-se alert-danger">
-                    {{ session('status') }}
-                </div>
-            @endif
-        </div>
 
         <div class="container mt-3">
 
@@ -121,14 +114,14 @@
 
 
     <script>
-        @if (session('error'))
+        @if (session('status'))
             Swal.fire({
-            title: "{{ session('error') }}",
-            text: "{{ session('status_text') }}",
-            icon: "{{ session('status_code') }}",
+            title: "Terjadi Kesalahan",
+            text: "Cek Email atau Password",
+            icon: "{{ session('status') }}",
             showConfirmButton: false,
             });
-            setTimeout(window.location.reload.bind(window.location), 2000);
+            setTimeout(window.location.reload.bind(window.location), 1500);
         @endif
     </script>
 @endpush

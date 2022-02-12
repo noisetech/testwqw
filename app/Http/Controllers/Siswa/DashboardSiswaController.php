@@ -7,6 +7,7 @@ use App\Siswa;
 use App\TagihanAdminitrasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class DashboardSiswaController extends Controller
 {
@@ -31,7 +32,9 @@ class DashboardSiswaController extends Controller
 
             $request->session()->regenerateToken();
 
-            return redirect('/login')->with('status', 'Anda masih memiliki tunggakan harap segera dilunaskan');
+            Session::flash('error', 'error');
+
+            return redirect('/login');
         }
 
 
