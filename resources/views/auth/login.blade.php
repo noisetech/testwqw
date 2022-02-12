@@ -128,7 +128,7 @@
             icon: "{{ session('status_code') }}",
             showConfirmButton: false,
             });
-            setTimeout(window.location.reload.bind(window.location), 2500);
+            setTimeout(window.location.reload.bind(window.location), 2000);
         @endif
     </script>
 @endpush

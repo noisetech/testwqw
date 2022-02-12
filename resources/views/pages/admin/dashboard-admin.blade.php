@@ -17,3 +17,17 @@
     </div>
 </div>
 @endsection
+@push('script')
+    <script src="{{ asset('backend/js/sweetalert.min.js') }}"></script>
+    <script>
+        @if (session('status'))
+            Swal.fire({
+            title: "Success",
+            text: "Berhasil Login",
+            icon: "{{ session('status') }}",
+            showConfirmButton: false,
+            });
+            setTimeout(window.location.reload.bind(window.location), 1500);
+        @endif
+    </script>
+@endpush
