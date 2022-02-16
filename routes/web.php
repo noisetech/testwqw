@@ -157,4 +157,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('kepala-sekolah/dashboard', 'DasboardKepalaSekolahController@dashboard_kepala_sekolah');
+Route::prefix('kepala-sekolah')
+->namespace('KepalaSekolah')
+->middleware('auth', 'kepala sekolah')
+->group(function(){
+    Route::get('/', 'DashboardKepalaSekolahController@index')->name('dashboard_kepala_sekolah');
+    Route::get('/halaman-opsi-data-siswa', 'SiswaController@halaman_opsi_siswa_kepala_sekolah')->name('opsi.siswa.kepala.sekolah');
+    Route::post('/data-siswa', 'SiswaController@cari_opsi_siswa_kepala_sekolah' )->name('cari.siswa.kepalasekolah');
+
+});

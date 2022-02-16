@@ -17,5 +17,19 @@
             </li>
 
 
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('opsi.siswa.kepala.sekolah') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Siswa</span></a>
+            </li>
+
+
+            <li class="nav-item active">
+                <a class="nav-link" href="">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Guru</span></a>
+            </li>
+
+
         </ul>
         <!-- End of Sidebar -->

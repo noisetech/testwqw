@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\KepalaSekolah;
 
+use App\Guru;
 use App\Http\Controllers\Controller;
-use App\Semester;
-use App\Siswa;
 use App\Tahun;
 use Illuminate\Http\Request;
 
-class SiswaController extends Controller
+class GuruController extends Controller
 {
-    public function halaman_opsi_siswa_kepala_sekolah(){
+    public function halaman_opsi_guru_kepala_sekolah(){
         $tahun = Tahun::all();
 
         return view('pages.kepala-sekolah.siswa.halaman_opsi_siswa_kepala_sekolah', [
@@ -18,16 +17,16 @@ class SiswaController extends Controller
         ]);
     }
 
-    public function cari_opsi_siswa_kepala_sekolah(Request $request){
+    public function cari_opsi_guru_kepala_sekolah(Request $request){
         $inputan = $request->input('tahun');
 
-        $items = Siswa::whereYear('tgl_masuk', $inputan)->get();
+        $items = Guru::whereYear('created_at', $inputan)->get();
 
-        $total_siswa = $items->count();
+        $total_guru = $items->count();
 
         return view('pages.kepala-sekolah.siswa.data-berdasarkan-opsi', [
             'items' => $items,
-            'total_siswa' => $total_siswa
+            'total_guru' => $total_guru
         ]);
 
     }

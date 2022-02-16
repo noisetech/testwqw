@@ -30,6 +30,10 @@ class RedirectIfAuthenticated
             if (Auth::user() && Auth::user()->role == 'guru') {
                 return redirect()->route('dashboard.guru');
             }
+
+            if (Auth::user() && Auth::user()->role == 'kepala sekolah') {
+                return redirect()->route('dashboard_kepala_sekolah');
+            }
         }
 
         return $next($request);

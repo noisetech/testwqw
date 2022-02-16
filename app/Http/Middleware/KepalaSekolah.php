@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
-class Multi
+class KepalaSekolah
 {
     /**
      * Handle an incoming request.
@@ -16,10 +17,10 @@ class Multi
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->role == 'admin' || Auth::user() && Auth::user()->role == 'kepala sekolah') {
+        if (Auth::user() && Auth::user()->role == 'kepala sekolah') {
             return $next($request);
-        }
 
+        }
         return redirect()->back();
     }
 }

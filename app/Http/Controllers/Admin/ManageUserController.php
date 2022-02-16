@@ -98,7 +98,10 @@ class ManageUserController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('manage_user.index')->with('status', 'Data berhasil diubah');
+        return redirect()->route('manage_user.index')
+        ->with('status_code', 'success')
+        ->with('status_text', 'Data diubah')
+        ->with('status', 'Berhasil');
     }
 
     /**

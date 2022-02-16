@@ -35,19 +35,24 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        if (Auth::user() && Auth::user()->role == 'admin') {
-            Session::flash('status','success');
+        if (Auth::user() && Auth::user()->role == "admin") {
+            Session::flash('status', 'success');
             return $this->redirectTo = route('dashboard-admin');
         }
 
-        if (Auth::user() && Auth::user()->role == 'siswa') {
-            Session::flash('status','success');
+        if (Auth::user() && Auth::user()->role == "siswa") {
+            Session::flash('status', 'success');
             return $this->redirectTo = route('dashboard.siswa');
         }
 
-        if (Auth::user() && Auth::user()->role == 'guru') {
-            Session::flash('status','success');
+        if (Auth::user() && Auth::user()->role == "guru") {
+            Session::flash('status', 'success');
             return $this->redirectTo = route('dashboard.guru');
+        }
+
+        if (Auth::user() && Auth::user()->role == "kepala sekolah") {
+            Session::flash('status', 'success');
+            return $this->redirectTo = route('dashboard_kepala_sekolah');
         }
     }
 
