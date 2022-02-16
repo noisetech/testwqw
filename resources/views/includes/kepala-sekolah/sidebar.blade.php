@@ -30,6 +30,19 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Guru</span>
+                </a>
+                <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="">Data Pertahun</a>
+                        <a class="collapse-item" href="">Semua Data</a>
+                    </div>
+                </div>
+            </li>
+
 
         </ul>
         <!-- End of Sidebar -->
