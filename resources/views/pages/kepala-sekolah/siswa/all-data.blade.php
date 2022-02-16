@@ -1,18 +1,22 @@
 @extends('layouts.kepala')
 
-@section('title', 'Data Siswa')
+@section('title', 'Semua Data Siswa')
 @section('content')
     <div class="container-fluid mt-5 mb-5">
 
-        <div class="d-flex justify-content-start">
-            <div class="col-lg-4 col-d-4 col-sm-4">
-                <div class="card shadow mb-4">
-                    <div class="card-body text-center">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>Total Siswa : {{ $total_siswa }}</p>
-                            </div>
-                        </div>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="col-md-12">
+                        <p>Total Siswa : {{ $total_siswa }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="col-md-12">
+                     <a href="{{ route('kepala.sekolah.export.siswa') }}" class="btn btn-sm btn-success">Export Excel</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +26,7 @@
         <div class="card shadow">
             <div class="card-header">
                 <div class="font-weight-bold text-primary m-0">
-                    <p>List Siswa</p>
+                    <p>List Semua Siswa</p>
                 </div>
             </div>
             <div class="card-body">

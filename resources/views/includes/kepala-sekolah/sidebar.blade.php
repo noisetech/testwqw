@@ -17,17 +17,17 @@
             </li>
 
 
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('opsi.siswa.kepala.sekolah') }}">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Siswa</span></a>
-            </li>
-
-
-            <li class="nav-item active">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Guru</span></a>
+                    <span>Siswa</span>
+                </a>
+                <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('opsi.siswa.kepala.sekolah') }}">Data Pertahun</a>
+                        <a class="collapse-item" href="{{ route('semua.data.sisw.kepala.sekolah') }}">Semua Data</a>
+                    </div>
+                </div>
             </li>
 
 
