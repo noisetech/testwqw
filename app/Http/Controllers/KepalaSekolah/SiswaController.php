@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\KepalaSekolah;
 
 use App\Exports\SiswaExport;
+use App\Exports\SiswaView;
 use App\Http\Controllers\Controller;
-use App\Semester;
 use App\Siswa;
 use App\Tahun;
 use Illuminate\Http\Request;
-use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+
 
 class SiswaController extends Controller
 {
@@ -45,7 +45,7 @@ class SiswaController extends Controller
     }
 
     public function export_siswa_kepala_sekolah(){
-        return Excel::download(new SiswaExport, 'siswa.xlsx');
+        return Excel::download( new SiswaView, 'siswa.xlsx');
     }
 
 }

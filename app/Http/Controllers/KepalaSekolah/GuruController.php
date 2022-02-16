@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\KepalaSekolah;
 
+use App\Exports\GuruExport;
 use App\Guru;
 use App\Http\Controllers\Controller;
 use App\Tahun;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GuruController extends Controller
 {
@@ -28,7 +30,8 @@ class GuruController extends Controller
             'items' => $items,
             'total_guru' => $total_guru
         ]);
-
     }
+
+
 
 }
