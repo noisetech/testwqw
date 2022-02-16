@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($items as $key => $item)
+                            @foreach ($siswas as $item)
                                 <tr>
                                     <td>{{ $item->nama_depan . ' ' . $item->nama_belakang }}</td>
                                     <td>{{ $item->tempat_lahir . ' ' . \Carbon\Carbon::parse($item->tgl_lahir)->isoFormat('DD-MM-Y') }}
