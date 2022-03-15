@@ -90,9 +90,9 @@ Route::prefix('admin')->namespace('Admin')
         Route::put('/jadwal_siswa/update/{id}', 'JadwalSiswaController@update')->name('jadwal_siswa.update');
         Route::get('/jadwal_siswa/delete/{id}', 'JadwalSiswaController@delete')->name('jadwal_siswa.destroy');
 
-        // bagian opsi jadwal siswa bagian admin
-        Route::get('/opsi-jadwal-siswa', 'OpsiJadwalSiswaController@halaman_opsi_jadwal_siswa')->name('opsi.halaman.jadwal.siswa.admin');
-        Route::post('/cari-opsi/jadwal-siswa', 'OpsiJadwalSiswaController@cari_opsi_jadwal_siswa')->name('cari.opsi.jadwal.siswa.admin');
+        // bagian opsi hasil pembelajaran siswa
+        Route::get('/halaman-opsi-hasil-pembelajaran-sisswa', 'HasilPembelajaranSiswaBagianAdminController@halaman_opsi_hasil_pembelajaran_siswa')->name('opsi.halaman.jadwal.siswa.admin');
+        Route::post('/data-hasil-pembelajarn-siswa', 'HasilPembelajaranSiswaBagianAdminController@cari_hasil_pembelajaran_siswa')->name('cari.opsi.jadwal.siswa.admin');
 
         // bagian mata-pelajaran admin
         Route::get('/data-mata-pelajaran', 'MataPelajaranController@index')->name('mata.pelajaran.index');
@@ -132,9 +132,9 @@ Route::prefix('siswa')->namespace('Siswa')
     });
 
 
-    Route::prefix('kepala-sekolah')
+Route::prefix('kepala-sekolah')
     ->namespace('KepalaSekolah')
-    ->group(function(){
+    ->group(function () {
         Route::get('/', 'DashboardKepalaSekolahController@index')->name('test.kepala');
     });
 
@@ -158,14 +158,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('kepala-sekolah')
-->namespace('KepalaSekolah')
-->middleware('auth', 'kepala sekolah')
-->group(function(){
-    Route::get('/', 'DashboardKepalaSekolahController@index')->name('dashboard_kepala_sekolah');
-    Route::get('/halaman-opsi-data-siswa', 'SiswaController@halaman_opsi_siswa_kepala_sekolah')->name('opsi.siswa.kepala.sekolah');
-    Route::post('/data-siswa', 'SiswaController@cari_opsi_siswa_kepala_sekolah' )->name('cari.siswa.kepalasekolah');
-    Route::get('/semua-data-siswa', 'SiswaController@semua_data_siswa')->name('semua.data.sisw.kepala.sekolah');
-    Route::get('/bahan-export', 'SiswaController@bahan_export_siswa')->name('bahan.export.siswwa');
-    Route::get('/export-siswa', 'SiswaController@export')->name('kepala.sekolah.export.siswa');
-    Route::get('/export-guru', 'SiswaController@export_guru_kepala_sekolah')->name('kepala.sekolah.export.guru');
-});
+    ->namespace('KepalaSekolah')
+    ->middleware('auth', 'kepala sekolah')
+    ->group(function () {
+        Route::get('/', 'DashboardKepalaSekolahController@index')->name('dashboard_kepala_sekolah');
+        Route::get('/halaman-opsi-data-siswa', 'SiswaController@halaman_opsi_siswa_kepala_sekolah')->name('opsi.siswa.kepala.sekolah');
+        Route::post('/data-siswa', 'SiswaController@cari_opsi_siswa_kepala_sekolah')->name('cari.siswa.kepalasekolah');
+        Route::get('/semua-data-siswa', 'SiswaController@semua_data_siswa')->name('semua.data.sisw.kepala.sekolah');
+        Route::get('/bahan-export', 'SiswaController@bahan_export_siswa')->name('bahan.export.siswwa');
+        Route::get('/export-siswa', 'SiswaController@export')->name('kepala.sekolah.export.siswa');
+        Route::get('/export-guru', 'SiswaController@export_guru_kepala_sekolah')->name('kepala.sekolah.export.guru');
+    });

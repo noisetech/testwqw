@@ -15,7 +15,8 @@ class HasilPembelajaran extends Model
         'jadwal_siswa_id', 'tugas', 'uts', 'uas	', 'rata'
     ];
 
-    public function jadwal_siswa(){
+    public function jadwal_siswa()
+    {
         return $this->belongsTo(JadwalSiswa::class);
     }
 }

@@ -2,7 +2,17 @@
 
 @section('title', 'Jadwal')
 @section('content')
+
+
+
     <div class="container-fluid">
+
+        @if (session('error'))
+            <div class="alert alert-danger mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <div class="card shadow">
             <div class="card-header">
                 <div class="d-flex align-items-center justify-content-between">
@@ -20,7 +30,7 @@
                         <select name="tahun" class="form-control">
                             <option value="">Pilih Tahun</option>
                             @foreach ($tahun as $tahun)
-                            <option value="{{ $tahun->tahun }}">{{ $tahun->tahun }}</option>
+                                <option value="{{ $tahun->tahun }}">{{ $tahun->tahun }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -30,7 +40,7 @@
                         <select name="semester" class="form-control">
                             <option value="">Pilih Tahun</option>
                             @foreach ($semester as $semester)
-                            <option value="{{ $semester->semester }}">{{ $semester->semester }}</option>
+                                <option value="{{ $semester->semester }}">{{ $semester->semester }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -40,7 +50,8 @@
                         <select name="mata_pelajaran" class="form-control">
                             <option value="">Pilih Mata Pelajaran</option>
                             @foreach ($mata_pelajaran as $mata_pelajaran)
-                            <option value="{{ $mata_pelajaran->mata_pelajaran }}">{{ $mata_pelajaran->mata_pelajaran }}</option>
+                                <option value="{{ $mata_pelajaran->mata_pelajaran }}">
+                                    {{ $mata_pelajaran->mata_pelajaran }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -3,9 +3,10 @@
 @section('title', 'Jadwal')
 @section('content')
     <style>
-        p{
+        p {
             font-size: 16px;
         }
+
     </style>
 
     <div class="container-fluid mb-5">
@@ -30,10 +31,6 @@
                     <div class="font-weight-bold text-primary mt-2">
                         <p>Jadwal siswa</p>
                     </div>
-
-                    <a href="" class="btn btn-sm btn-primary">
-                        <i class="fas fa-sm fa-plus-circle"> Tambah data</i>
-                    </a>
                 </div>
             </div>
             <div class="card-body">
@@ -45,20 +42,28 @@
                                 <th>Mata Pelajar</th>
                                 <th>Pengajar</th>
                                 <th>Kelas</th>
-                                <th>Hari</th>
                                 <th>Semester</th>
+                                <th>Hasil Pembelajaran</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $key => $item)
-                            <tr>
-                                <td>{{ $key+1 }}</td>
-                                <td>{{ $item->jadwal->mata_pelajaran->mata_pelajaran }}</td>
-                                <td>{{ $item->jadwal->guru->nama_depan.' '.$item->jadwal->guru->nama_belakang }}</td>
-                                <td>{{ $item->jadwal->kelas->kelas.''.$item->jadwal->kelas->no_ruangan }}</td>
-                                <td>{{ $item->jadwal->hari->hari }}</td>
-                                <td>{{ $item->jadwal->semester->semester }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $item->jadwal->mata_pelajaran->mata_pelajaran }}</td>
+                                    <td>{{ $item->jadwal->guru->nama_depan . ' ' . $item->jadwal->guru->nama_belakang }}</td>
+                                    <td>{{ $item->jadwal->kelas->kelas . '' . $item->jadwal->kelas->no_ruangan }}</td>
+                                    <td>{{ $item->jadwal->semester->semester }}</td>
+                                    <td>
+                                        @if (empty($item->hasil_pembelajaran))
+                                            belum mendapatkan nilai
+                                        @else
+
+                                        {{ $item->hasil_pembelajaran->rata }}
+                                        @endif
+                                    </td>
+
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
