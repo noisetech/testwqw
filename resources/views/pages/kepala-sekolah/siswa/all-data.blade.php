@@ -6,13 +6,6 @@
 
     <div class="container-fluid mt-5 mb-5">
 
-        @if (session('error'))
-            <div class="alert alert-danger mb-3">
-                {{ session('error') }} <i class="fas fa-sm fa-exclamation-circle"></i>
-            </div>
-        @endif
-
-
         <form method="POST" action="{{ route('kepala.sekolah.export.siswa') }}">
             @csrf
 
