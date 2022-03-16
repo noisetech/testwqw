@@ -8,6 +8,8 @@ use App\Siswa;
 use App\Tahun;
 use Illuminate\Http\Request;
 use App\Exports\SiswaExport;
+use App\HasilPembelajaran;
+use App\JadwalSiswa;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -50,5 +52,32 @@ class SiswaController extends Controller
     public function export()
     {
         return Excel::download(new SiswaExport, 'data-seluruh-siswa.xlsx');
+    }
+
+    public function detail_siswa_bagian_kepala_sekolah($id)
+    {
+        $siswa  = Siswa::find($id);
+
+        return view('pages.kepala-sekolah.siswa.detail-siswa', [
+            'siswa' => $siswa
+        ]);
+    }
+
+    public function hasil_pembelajaran_siswa_bagian_kepala_sekolah($id)
+    {
+        $siswa  = Siswa::find($id);
+
+        $jadwal_siswa = JadwalSiswa::whereHas('siswa', function ($q) use ($siswa) {
+            return $q->where('siswa_id', $siswa);
+        })->pluck('id');
+
+
+        $hasil_pembelajaran_siswa = HasilPembelajaran::whereHas('jadwal_siswa', function ($q) use ($jadwal_siswa) {
+            return $q->whereIn('jadwal_siswa_id', $jadwal_siswa);
+        })->get();
+
+        return view('pages.kepala-sekolah.siswa.hasil-pembelajaran', [
+            'hasil_pembelajaran' => $hasil_pembelajaran_siswa
+        ]);
     }
 }
