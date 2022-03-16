@@ -2,25 +2,42 @@
 
 @section('title', 'Semua Data Siswa')
 @section('content')
+
+
     <div class="container-fluid mt-5 mb-5">
 
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <div class="col-md-12">
-                        <p>Total Siswa : {{ $total_siswa }}</p>
+        <form method="get" action="{{ route('kepala.sekolah.export.siswa') }}">
+
+            <div class="row justify-content-around align-items-center">
+
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label>Start Date:</label>
+                        <div class="input-group">
+                            <input id="startDate" type="date" name="startDate" class="form-control" />
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label>End Date:</label>
+                        <div class="input-group">
+                            <input id="endDate" type="date" name="endDate" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-sm4 col-md-4 col-lg-4">
+                <button class="btn btn-sm btn-success mb-3" type="submit" style="margin-top: 30px;">
+                    Export Excel
+                </button>
             </div>
 
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <div class="col-md-12">
-                     <a href="{{ route('kepala.sekolah.export.siswa') }}" class="btn btn-sm btn-success">Export Excel</a>
-                    </div>
-                </div>
             </div>
-        </div>
+
+        </form>
+
 
 
         <div class="card shadow">

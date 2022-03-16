@@ -3,8 +3,8 @@
 @section('content')
     <div class="container-fluid" style="margin-top: 60px;">
 
-        <div class="d-flex justify-content-start">
-            <div class="col-lg-4 col-d-4 col-sm-4">
+        <div class="row">
+            <div class="col-lg-6 col-d-4 col-sm-4">
                 <div class="card shadow mb-4">
                     <div class="card-body text-center">
                         <div class="row">
@@ -16,7 +16,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="card shadow">
             <div class="card-header">

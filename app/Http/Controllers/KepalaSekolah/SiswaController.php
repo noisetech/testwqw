@@ -13,7 +13,8 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
-    public function halaman_opsi_siswa_kepala_sekolah(){
+    public function halaman_opsi_siswa_kepala_sekolah()
+    {
         $tahun = Tahun::all();
 
         return view('pages.kepala-sekolah.siswa.halaman_opsi_siswa_kepala_sekolah', [
@@ -21,7 +22,8 @@ class SiswaController extends Controller
         ]);
     }
 
-    public function cari_opsi_siswa_kepala_sekolah(Request $request){
+    public function cari_opsi_siswa_kepala_sekolah(Request $request)
+    {
         $inputan = $request->input('tahun');
 
         $siswas = Siswa::with('user')->whereYear('tgl_masuk', $inputan)->get();
@@ -34,7 +36,8 @@ class SiswaController extends Controller
         ]);
     }
 
-    public function semua_data_siswa(){
+    public function semua_data_siswa()
+    {
         $items = Siswa::orderBy('tgl_masuk', 'asc')->get();
 
         $total_siswa = $items->count();
@@ -48,7 +51,4 @@ class SiswaController extends Controller
     {
         return Excel::download(new SiswaExport, 'data-seluruh-siswa.xlsx');
     }
-
-
-
 }

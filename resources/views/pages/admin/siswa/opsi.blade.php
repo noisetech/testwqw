@@ -4,6 +4,12 @@
 @section('content')
     <div class="container-fluid" style="margin-top: 60px;">
 
+        @if (session('error'))
+            <div class="alert alert-danger mb-4">
+                {{ session('error') }} <i class="fas fa-sm fa-exclamation-circle"></i>
+            </div>
+        @endif
+
         <div class="card shadow">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
@@ -21,7 +27,7 @@
                         <select name="tahun" class="form-control">
                             <option value="">Pilih Tahun</option>
                             @foreach ($tahun as $tahun)
-                            <option value="{{ $tahun->tahun }}">{{ $tahun->tahun }}</option>
+                                <option value="{{ $tahun->tahun }}">{{ $tahun->tahun }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -32,6 +38,5 @@
                 </form>
             </div>
         </div>
-
     </div>
 @endsection

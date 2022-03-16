@@ -92,7 +92,7 @@ Route::prefix('admin')->namespace('Admin')
 
         // bagian opsi hasil pembelajaran siswa
         Route::get('/halaman-opsi-hasil-pembelajaran-sisswa', 'HasilPembelajaranSiswaBagianAdminController@halaman_opsi_hasil_pembelajaran_siswa')->name('opsi.halaman.jadwal.siswa.admin');
-        Route::post('/data-hasil-pembelajarn-siswa', 'HasilPembelajaranSiswaBagianAdminController@cari_hasil_pembelajaran_siswa')->name('cari.opsi.jadwal.siswa.admin');
+        Route::post('/data-hasil-pembelajaran-siswa', 'HasilPembelajaranSiswaBagianAdminController@cari_hasil_pembelajaran_siswa')->name('cari.opsi.jadwal.siswa.admin');
 
         // bagian mata-pelajaran admin
         Route::get('/data-mata-pelajaran', 'MataPelajaranController@index')->name('mata.pelajaran.index');

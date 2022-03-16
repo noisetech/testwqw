@@ -9,7 +9,7 @@
 
         @if (session('error'))
             <div class="alert alert-danger mb-4">
-                {{ session('error') }}
+                {{ session('error') }} <i class="fas fa-sm fa-exclamation-circle"></i>
             </div>
         @endif
 
@@ -17,7 +17,7 @@
             <div class="card-header">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="font-weight-bold text-primary mt-2">
-                        <p>Opsi jadwal siswa</p>
+                        <p>Opsi Hasil Pembelajaran Siswa</p>
                     </div>
                 </div>
             </div>

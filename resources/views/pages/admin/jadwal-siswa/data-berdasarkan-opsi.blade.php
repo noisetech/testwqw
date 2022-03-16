@@ -29,7 +29,7 @@
             <div class="card-header">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="font-weight-bold text-primary mt-2">
-                        <p>Jadwal siswa</p>
+                        <p>Hasil pembelajaran siswa</p>
                     </div>
                 </div>
             </div>
