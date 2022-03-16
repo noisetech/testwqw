@@ -6,7 +6,15 @@
 
     <div class="container-fluid mt-5 mb-5">
 
-        <form method="get" action="{{ route('kepala.sekolah.export.siswa') }}">
+        @if (session('error'))
+            <div class="alert alert-danger mb-3">
+                {{ session('error') }} <i class="fas fa-sm fa-exclamation-circle"></i>
+            </div>
+        @endif
+
+
+        <form method="POST" action="{{ route('kepala.sekolah.export.siswa') }}">
+            @csrf
 
             <div class="row justify-content-around align-items-center">
 
@@ -14,7 +22,7 @@
                     <div class="form-group">
                         <label>Start Date:</label>
                         <div class="input-group">
-                            <input id="startDate" type="date" name="startDate" class="form-control" />
+                            <input id="startDate" type="date" name="startDate" class="form-control"  required/>
                         </div>
                     </div>
                 </div>
@@ -23,16 +31,16 @@
                     <div class="form-group">
                         <label>End Date:</label>
                         <div class="input-group">
-                            <input id="endDate" type="date" name="endDate" class="form-control" />
+                            <input id="endDate" type="date" name="endDate" class="form-control"  required/>
                         </div>
                     </div>
                 </div>
 
-            <div class="col-sm4 col-md-4 col-lg-4">
-                <button class="btn btn-sm btn-success mb-3" type="submit" style="margin-top: 30px;">
-                    Export Excel
-                </button>
-            </div>
+                <div class="col-sm4 col-md-4 col-lg-4">
+                    <button class="btn btn-sm btn-success mb-3" type="submit" style="margin-top: 30px;">
+                        Export Excel
+                    </button>
+                </div>
 
             </div>
 

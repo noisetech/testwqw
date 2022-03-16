@@ -166,6 +166,6 @@ Route::prefix('kepala-sekolah')
         Route::post('/data-siswa', 'SiswaController@cari_opsi_siswa_kepala_sekolah')->name('cari.siswa.kepalasekolah');
         Route::get('/semua-data-siswa', 'SiswaController@semua_data_siswa')->name('semua.data.sisw.kepala.sekolah');
         Route::get('/bahan-export', 'SiswaController@bahan_export_siswa')->name('bahan.export.siswwa');
-        Route::get('/export-siswa', 'SiswaController@export')->name('kepala.sekolah.export.siswa');
+        Route::post('/export-siswa', 'SiswaController@export')->name('kepala.sekolah.export.siswa');
         Route::get('/export-guru', 'SiswaController@export_guru_kepala_sekolah')->name('kepala.sekolah.export.guru');
     });

@@ -11,12 +11,9 @@ class SiswaExport implements FromView
 
     public function view(): View
     {
-        // $siswa = Siswa::with(['user'])->orderBy('nama_depan', 'ASC')->get();
+
 
         $startDate = request()->input('startDate');
-
-        // dd($startDate);
-
         $endDate = request()->input('endDate');
 
 
