@@ -91,7 +91,6 @@ class SiswaController extends Controller
             return $q->where('semester_id', $semester);
         })->pluck('id');
 
-
         // cari jadwal siswa yang beralsi dengan jadwal diatas
         //  yang sama dengan $tahun
         // ambil semua id nya
@@ -109,8 +108,13 @@ class SiswaController extends Controller
             return $q->whereIn('jadwal_siswa_id', $jadwal_siswa);
         })->get();
 
+        $nama_siswa = Siswa::where('id', $bahan_id_siswa)->first();
+
+        // dd($hasil_pembelajaran);
+
         return view('pages.kepala-sekolah.siswa.hasil-pembelajaran', [
-            'hasl_pembelajaran' => $hasil_pembelajaran
+            'hasil_pembelajaran' => $hasil_pembelajaran,
+            'nama_siswa' => $nama_siswa
         ]);
     }
 }
