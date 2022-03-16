@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label>Start Date:</label>
                         <div class="input-group">
-                            <input id="startDate" type="date" name="startDate" class="form-control"  required/>
+                            <input id="startDate" type="date" name="startDate" class="form-control" required />
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label>End Date:</label>
                         <div class="input-group">
-                            <input id="endDate" type="date" name="endDate" class="form-control"  required/>
+                            <input id="endDate" type="date" name="endDate" class="form-control" required />
                         </div>
                     </div>
                 </div>
@@ -52,15 +52,24 @@
                     <table class="table text-center table-bordered table-hover" id="dataTable">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama Lengkap</th>
                                 <th>No Telepon</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $key => $item)
                                 <tr>
+                                    <td>{{ $key+1 }}</td>
                                     <td>{{ $item->nama_depan . ' ' . $item->nama_belakang }}</td>
                                     <td>{{ $item->no_telpon_orang_tua }}</td>
+                                    <td>
+                                        <a href="{{ route('opsi-hasil-pembelajaran-siswa-bagian-kepala-sekolah', $item->id) }}" class="btn btn-sm btn-primary" class="btn btn-secondary"
+                                            data-toggle="tooltip" data-placement="top" title="Hasil Pembelajaran">
+                                            <i class="fas fa-sm fa-book-open"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -70,3 +79,12 @@
         </div>
     </div>
 @endsection
+
+
+@push('script')
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+@endpush

@@ -11,6 +11,12 @@
 
     <div class="container-fluid mb-5">
 
+        @if (session('status'))
+            <div class="alert alert-danger mb-3">
+              <i class="fas fa-sm fa-exclamation-circle"></i>  {{ session('status') }}
+            </div>
+        @endif
+
         <div class="d-flex justify-content-start">
             <div class="col-lg-4 col-d-4 col-sm-4">
                 <div class="card shadow mb-4">
@@ -39,6 +45,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Siswa</th>
                                 <th>Mata Pelajar</th>
                                 <th>Pengajar</th>
                                 <th>Kelas</th>
@@ -50,16 +57,17 @@
                             @foreach ($items as $key => $item)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
+                                    <td>{{ $item->siswa->nama_depan . ' ' . $item->siswa->nama_belakang }}</td>
                                     <td>{{ $item->jadwal->mata_pelajaran->mata_pelajaran }}</td>
-                                    <td>{{ $item->jadwal->guru->nama_depan . ' ' . $item->jadwal->guru->nama_belakang }}</td>
+                                    <td>{{ $item->jadwal->guru->nama_depan . ' ' . $item->jadwal->guru->nama_belakang }}
+                                    </td>
                                     <td>{{ $item->jadwal->kelas->kelas . '' . $item->jadwal->kelas->no_ruangan }}</td>
                                     <td>{{ $item->jadwal->semester->semester }}</td>
                                     <td>
                                         @if (empty($item->hasil_pembelajaran))
                                             belum mendapatkan nilai
                                         @else
-
-                                        {{ $item->hasil_pembelajaran->rata }}
+                                            {{ $item->hasil_pembelajaran->rata }}
                                         @endif
                                     </td>
 

@@ -168,4 +168,12 @@ Route::prefix('kepala-sekolah')
         Route::get('/bahan-export', 'SiswaController@bahan_export_siswa')->name('bahan.export.siswwa');
         Route::post('/export-siswa', 'SiswaController@export')->name('kepala.sekolah.export.siswa');
         Route::get('/export-guru', 'SiswaController@export_guru_kepala_sekolah')->name('kepala.sekolah.export.guru');
+
+
+        // hasi pembelajaran siswa
+        Route::get('/opsi-hasil-pembelajaran/siswa/{id}', 'SiswaController@opsi_hasil_pembelajaran_siswa')
+            ->name('opsi-hasil-pembelajaran-siswa-bagian-kepala-sekolah');
+
+        Route::post('/data-hasil-pembelajaran/siswa/{id}', 'SiswaController@hasil_pembelajaran_siswa_bagian_kepala_sekolah')
+            ->name('hasil_pembelajaran_siswa_bagian_kepala_sekolah');
     });

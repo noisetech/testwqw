@@ -3,7 +3,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard-admin') }}">
-                <div class="sidebar-brand-text mx-3">SIAKAD</div>
+                <div class="sidebar-brand-text mx-3"> MI. NURUL IMAN AL-HARUNI</div>
             </a>
 
             <!-- Divider -->

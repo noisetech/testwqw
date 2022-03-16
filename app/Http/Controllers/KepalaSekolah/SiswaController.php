@@ -9,7 +9,9 @@ use App\Tahun;
 use Illuminate\Http\Request;
 use App\Exports\SiswaExport;
 use App\HasilPembelajaran;
+use App\Jadwal;
 use App\JadwalSiswa;
+use App\Semester;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -40,7 +42,7 @@ class SiswaController extends Controller
 
     public function semua_data_siswa()
     {
-        $items = Siswa::orderBy('tgl_masuk', 'asc')->get();
+        $items = Siswa::orderBy('nama_depan', 'ASC')->get();
 
         $total_siswa = $items->count();
         return view('pages.kepala-sekolah.siswa.all-data', [
@@ -63,21 +65,52 @@ class SiswaController extends Controller
         ]);
     }
 
-    public function hasil_pembelajaran_siswa_bagian_kepala_sekolah($id)
+    public function opsi_hasil_pembelajaran_siswa($id)
     {
-        $siswa  = Siswa::find($id);
+        $siswa = Siswa::find($id);
+        $tahun = Tahun::all();
+        $semester = Semester::all();
 
-        $jadwal_siswa = JadwalSiswa::whereHas('siswa', function ($q) use ($siswa) {
-            return $q->where('siswa_id', $siswa);
+        return view('pages.kepala-sekolah.siswa.opsi-hasil-pembelajaran', [
+            'siswa' => $siswa,
+            'tahun' => $tahun,
+            'semester' => $semester
+        ]);
+    }
+
+
+    public function hasil_pembelajaran_siswa_bagian_kepala_sekolah(Request $request, $id)
+    {
+        $bahan_id_siswa = $request->siswa_id;
+        $semester = $request->input('semester');
+        $tahun = $request->input('tahun');
+
+
+        // cari jadwal berdasarkan semester yang diingikan
+        $jadwal = Jadwal::whereHas('semester', function ($q) use ($semester) {
+            return $q->where('semester_id', $semester);
         })->pluck('id');
 
 
-        $hasil_pembelajaran_siswa = HasilPembelajaran::whereHas('jadwal_siswa', function ($q) use ($jadwal_siswa) {
+        // cari jadwal siswa yang beralsi dengan jadwal diatas
+        //  yang sama dengan $tahun
+        // ambil semua id nya
+
+        $jadwal_siswa = JadwalSiswa::whereHas('jadwal', function ($q) use ($jadwal) {
+            return $q->whereIn('jadwal_id', $jadwal);
+        })->whereHas('siswa', function ($q) use ($bahan_id_siswa) {
+            return $q->where('siswa_id', $bahan_id_siswa);
+        })->where('tahun', $tahun)->pluck('id');
+
+
+        // cari hasil pembelajaran siswa
+        // bedasarkan id yang didapatkan jadwal siswa
+        $hasil_pembelajaran = HasilPembelajaran::whereHas('jadwal_siswa', function ($q) use ($jadwal_siswa) {
             return $q->whereIn('jadwal_siswa_id', $jadwal_siswa);
         })->get();
 
         return view('pages.kepala-sekolah.siswa.hasil-pembelajaran', [
-            'hasil_pembelajaran' => $hasil_pembelajaran_siswa
+            'hasl_pembelajaran' => $hasil_pembelajaran
         ]);
     }
 }
