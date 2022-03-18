@@ -32,7 +32,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        $user = User::all()->where('role', 'siswa')->whereIn('status_akun', '');
+        $user = User::whereNull('status_akun')->whereNotIn('role', ['admin'])->get();
 
         return view('pages.admin.siswa.create', [
             'user' => $user
