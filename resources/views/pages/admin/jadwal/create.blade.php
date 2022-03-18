@@ -115,6 +115,16 @@
                         @enderror
                     </div>
 
+                    <div class="form-group">
+                        <label for="">Tahun</label>
+                        <select name="" class="form-control">
+                            <option value="">Pilih Tahun Jadwal</option>
+                            @foreach ($tahun as $tahun)
+                            <option value="{{ $tahun->id }}">{{ $tahun->tahun }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
 
 
 

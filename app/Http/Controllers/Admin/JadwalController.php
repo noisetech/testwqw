@@ -9,6 +9,7 @@ use App\Jadwal;
 use App\Kelas;
 use App\MataPelajaran;
 use App\Semester;
+use App\Tahun;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
@@ -39,12 +40,15 @@ class JadwalController extends Controller
         $kelas = Kelas::all();
         $hari = Hari::all();
         $semester = Semester::all();
+        $tahun = Tahun::all();
+
         return view('pages.admin.jadwal.create', [
             'mata_pelajaran' => $mata_pelajaran,
             'guru' => $guru,
             'kelas' => $kelas,
             'hari' => $hari,
-            'semester' => $semester
+            'semester' => $semester,
+            'tahun' => $tahun
         ]);
     }
 
@@ -92,13 +96,15 @@ class JadwalController extends Controller
         $kelas = Kelas::all();
         $hari = Hari::all();
         $semester = Semester::all();
+        $tahun = Tahun::all();
         return view('pages.admin.jadwal.edit', [
             'item' => $item,
             'mata_pelajaran' => $mata_pelajaran,
             'guru' => $guru,
             'kelas' => $kelas,
             'hari' => $hari,
-            'semester' => $semester
+            'semester' => $semester,
+            'tahun' => $tahun
         ]);
     }
 

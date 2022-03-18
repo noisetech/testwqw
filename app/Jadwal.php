@@ -12,7 +12,7 @@ class Jadwal extends Model
  protected $table = 'jadwal';
 
  protected $fillable = [
-     'mata_pelajaran_id', 'tingkat', 'kelas_id', 'guru_id', 'hari_id', 'semester_id', 'jam_mulai', 'jam_selsai'
+     'mata_pelajaran_id', 'tingkat', 'kelas_id', 'guru_id', 'hari_id', 'semester_id', 'jam_mulai', 'jam_selsai', 'tahun_id'
  ];
 
  public function mata_pelajaran(){
@@ -38,6 +38,10 @@ public function semester(){
 
 public function jadwal_siswa(){
     return $this->hasMany(JadwalSiswa::class, 'jadwal_id', 'id');
+}
+
+public function tahun(){
+    return $this->belongsTo(Tahun::class, 'tahun_id', 'tahun_id');
 }
 
 }

@@ -99,7 +99,7 @@
 
                     <div class="form-group">
                         <label for="">Jam Mulai</label>
-                        <input type="time" name="jam_mulai" class="form-control @error('jam_mulai') is-invalid @enderror"
+                        <input type="time" name="jam_mulai" class="form-control @error('jam_mulai') 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000is-invalid @enderror"
                             placeholder="Jam Mulai" value="{{ $item->jam_mulai }}">
                         @error('jam_mulai')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -116,6 +116,15 @@
                     </div>
 
 
+                    <div class="form-group">
+                        <label for="">Tahun</label>
+                        <select name="tahun_id" class="form-control">
+                            <option value="{{ $tahun->id }}">Data Sebelumnya({{ $tahun->tahun }})</option>
+                            @foreach ($tahun as $tahun)
+                            <option value="{{ $tahun->id }}">{{ $tahun->tahun }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
 
                     <button class="btn btn-block btn-success" type="submit">

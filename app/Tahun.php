@@ -14,4 +14,8 @@ class Tahun extends Model
     protected $fillable = [
         'tahun'
     ];
+
+    public function jadwal(){
+        return $this->hasMany(Jadwal::class, 'tahun_id');
+    }
 }
