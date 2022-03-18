@@ -16,7 +16,7 @@ class ManageUserController extends Controller
      */
     public function index()
     {
-        $items = User::all();
+        $items = User::orderBy('created_at', 'DESC')->get();
 
         return view('pages.admin.manage-user.index', [
             'items' => $items

@@ -59,6 +59,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
 
                         <a class="collapse-item" href="{{ route('mata.pelajaran.index') }}">Mata Pelajaran</a>
+                        <a class="collapse-item" href="{{ route('jadwal.index') }}">Jadwal Pelajaran</a>
                         <a class="collapse-item" href="{{ route('kelas.index') }}">Kelas</a>
                         <a class="collapse-item" href="{{ route('opsi.halaman.jadwal.siswa.admin') }}">Hasil Pembelajaran Siswa</a>
                     </div>

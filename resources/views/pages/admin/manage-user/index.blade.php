@@ -21,7 +21,7 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table text-center table-bordered table-hover" cellspacing="0" width="100%" id="dataTable">
+                    <table class="table text-center table-bordered table-hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Name</th>
